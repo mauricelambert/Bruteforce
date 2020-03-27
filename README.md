@@ -37,21 +37,19 @@ Le premier script est un script de bruteforce de hash :
       
   - Mot de passe Windows :
     - Lorsque vous récupérez les hashs de vos mots de passe Windows vous les trouverez sous cette forme :
-      Administrator:500:aad3b435b51404eeaad3b435b51404ee:31d6cfe0d16ae931b73c59d7e0c089c0:::
-      Guest:501:aad3b435b51404eeaad3b435b51404ee:31d6cfe0d16ae931b73c59d7e0c089c0:::
-      John Doe:1000:aad3b435b51404eeaad3b435b51404ee:b9f917853e3dbf6e6831ecce60725930:::
+      - John Doe:1000:aad3b435b51404eeaad3b435b51404ee:b9f917853e3dbf6e6831ecce60725930:::
     - Enfaite de manière générale ils sont visible comme ça :
-      NomUtilisateur:NombreCorrespondantAuTypeDeCompte:UnHash:MD4_duMotDePasse(encoding : UTF-16le):::
+      - NomUtilisateur:NombreCorrespondantAuTypeDeCompte:UnHash:MD4_duMotDePasse(encoding : UTF-16le):::
       
   - Mot de passe Linux :
     - Lorsque vous récupérez les hashs de vos mots de passe Linuw vous les trouverez sous cette forme :
-      John:$6$ABCDEFGHIJKLMNOP$XICo1SGZRjxn3r2NvLTfwPU4dJmg7iH6BtkD9YyVcu0F2wJSIgnCUBW7iu065cvrlM/d3jZOby.mEoftNLVRHX:1832;0:9997:8:::
+      - John:$6$ABCDEFGHIJKLMNOP$XICo1SGZRjxn3r2NvLTfwPU4dJmg7iH6BtkD9YyVcu0F2wJSIgnCUBW7iu065cvrlM/d3jZOby.mEoftNLVRHX:1832;0:9997:8:::
     - Voila comment il est décomposé :
-      Nom:Hash:Nombre1:Nombre2:Nombre3:::
-      Le hash se décompose de la manière suivante :
-      $typeDeHash$salt$hash
-    - Ils ne sont décryptable qu'avec la version Linux
-      CrackHashLinux86.py crypt $6$WqWNz4bnyBa.ZqKQ$tdKA2jh5eAkzg4f2zjdxNg8wk3Oq6iTv/7jbygF8cRmyRLvblS/swx9nTKh3/KE1I6DG7oMr3bvBsnLTFITH91
+      - Nom:Hash:Nombre1:Nombre2:Nombre3:::
+      - Le hash se décompose de la manière suivante :
+        - $typeDeHash$salt$hash
+    - Ils ne sont décryptable qu'avec la version Linux :
+      - CrackHashLinux86.py crypt $6$WqWNz4bnyBa.ZqKQ$tdKA2jh5eAkzg4f2zjdxNg8wk3Oq6iTv/7jbygF8cRmyRLvblS/swx9nTKh3/KE1I6DG7oMr3bvBsnLTFITH91
       Le mot de passe Linux prend 100 fois plus de temps (en moyenne) à être retrouvé que le mot de passe Windows (le même).
 
 Le second script que je propose permet d'extraire un fichier zip crypté et de récupérer le mot de passe :
