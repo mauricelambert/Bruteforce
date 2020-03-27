@@ -41,7 +41,16 @@ Le premier script est un script de bruteforce de hash :
       Guest:501:aad3b435b51404eeaad3b435b51404ee:31d6cfe0d16ae931b73c59d7e0c089c0:::
       John Doe:1000:aad3b435b51404eeaad3b435b51404ee:b9f917853e3dbf6e6831ecce60725930:::
     - Enfaite de manière générale ils sont visible comme ça :
-      NomUtilisateur:NombreCorrespondantAuTypeDeCompteEtAutorisation:UnHashQueJeNeConnaisPas:MD4(encoding : UTF-16le):::
+      NomUtilisateur:NombreCorrespondantAuTypeDeCompte:UnHash:MD4_duMotDePasse(encoding : UTF-16le):::
+      
+  - Mot de passe Linux :
+    - Lorsque vous récupérez les hashs de vos mots de passe Linuw vous les trouverez sous cette forme :
+      John:$6$ABCDEFGHIJKLMNOP$XICo1SGZRjxn3r2NvLTfwPU4dJmg7iH6BtkD9YyVcu0F2wJSIgnCUBW7iu065cvrlM/d3jZOby.mEoftNLVRHX:1832;0:9997:8:::
+    - Voila comment il est décomposé :
+      Nom:Hash:Nombre1:Nombre2:Nombre3:::
+      Le hash se décompose de la manière suivante :
+      $typeDeHash$salt$hash
+    - Ils ne sont pas encore décryptable avec mon script
 
 Le second script que je propose permet d'extraire un fichier zip crypté et de récupérer le mot de passe :
   - Utilisations :
