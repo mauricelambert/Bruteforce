@@ -50,7 +50,7 @@ Le premier script est un script de bruteforce de hash :
         - $typeDeHash$salt$hash
     - Ils ne sont décryptable qu'avec la version Linux :
       - CrackHashLinux86.py crypt $6$WqWNz4bnyBa.ZqKQ$tdKA2jh5eAkzg4f2zjdxNg8wk3Oq6iTv/7jbygF8cRmyRLvblS/swx9nTKh3/KE1I6DG7oMr3bvBsnLTFITH91
-      Le mot de passe Linux prend 100 fois plus de temps (en moyenne) à être retrouvé que le mot de passe Windows (le même).
+    - Le mot de passe Linux prend 100 fois plus de temps (en moyenne) à être retrouvé que le mot de passe Windows (le même).
 
 Le second script que je propose permet d'extraire un fichier zip crypté et de récupérer le mot de passe :
   - Utilisations :
