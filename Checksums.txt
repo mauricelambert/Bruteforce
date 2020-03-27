@@ -22,3 +22,8 @@ File name : CrackHashLinux86.py
 MD5 : c3d4db80cf26f78957f0394e10258741
 SHA1 : ed39f07353f3aaf2bb6ef01d2e5d2b3e8116877c
 SHA256 : a66973fecc38d313cae642d3fe261b80247e49dee089d2ce6fe9e7b68cb9177f
+
+File name : CrackZipLinux86.py
+MD5 : 559c762c0525d09044e92cb72b06d8c1
+SHA1 : 6a704103c1e300f2fedbd1f2f15cad310d9d3638
+SHA256 : 1f60753ffeaca6aeab9a53bcd8ccde5d37b07c4bb3ffe168c833e2fbd0be2c73
