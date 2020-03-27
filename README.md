@@ -35,6 +35,14 @@ Le premier script est un script de bruteforce de hash :
     - Avec l'option person (blake2s et blake2b uniquement) :
       - CrackHackx86.py -pe Secret blake2s b15fdeda739a91e23e68a604498c828e7c1c4895f5953d80
       
+  - Mot de passe Windows :
+    - Lorsque vous récupérez les hashs de vos mots de passe Windows vous les trouverez sous cette forme :
+      Administrator:500:aad3b435b51404eeaad3b435b51404ee:31d6cfe0d16ae931b73c59d7e0c089c0:::
+      Guest:501:aad3b435b51404eeaad3b435b51404ee:31d6cfe0d16ae931b73c59d7e0c089c0:::
+      John Doe:1000:aad3b435b51404eeaad3b435b51404ee:b9f917853e3dbf6e6831ecce60725930:::
+    - Enfaite de manière générale ils sont visible comme ça :
+      NomUtilisateur:NombreCorrespondantAuTypeDeCompteEtAutorisation:UnHashQueJeNeConnaisPas:MD4(encoding : UTF-16le):::
+
 Le second script que je propose permet d'extraire un fichier zip crypté et de récupérer le mot de passe :
   - Utilisations :
     - Générale : CrackZipx64.py [options]
