@@ -6,7 +6,7 @@ Le premier script est un script de bruteforce de hash :
     - Générale : bruteforce.py [options] &lt;method&gt; &lt;hash&gt;
   
     - Simple :
-      - bruteforce.py md5 b706835de79a2b4e80506f582af3676a
+      - ``` bruteforce.py md5 b706835de79a2b4e80506f582af3676a ```
       
     - Uniquement avec un dictionnaire de mot de passe :
       - bruteforce.py -p sha1 5baa61e4c9b93f3f0682250b6cf8331b7ee68fd8
