@@ -3,69 +3,67 @@ Petits scripts de bruteforce en python (version 3.8, avec une version plus ancie
 
 Le premier script est un script de bruteforce de hash :
   - Utilisations :
-    - Générale : bruteforce.py [options] &lt;method&gt; &lt;hash&gt;
+    - Générale : ``` bruteforce.py [options] <method> <hash> ```
   
     - Simple :
       - ``` bruteforce.py md5 b706835de79a2b4e80506f582af3676a ```
       
     - Uniquement avec un dictionnaire de mot de passe :
-      - bruteforce.py -p sha1 5baa61e4c9b93f3f0682250b6cf8331b7ee68fd8
+      - ``` bruteforce.py -p sha1 5baa61e4c9b93f3f0682250b6cf8331b7ee68fd8 ```
       
     - Uniquement avec bruteforce (revient à lancer la commande simple et entrer 0 à la place d'un fichier) :
-      - bruteforce.py -b shake_256 8927140c0e1daa0769590edc8d104d9b8b51c77707681c4738
+      - ``` bruteforce.py -b shake_256 8927140c0e1daa0769590edc8d104d9b8b51c77707681c4738 ```
       
     - Avec un alphabet particulier :
-      - bruteforce.py -a 0123456789 md5-sha1 85d6066ab1d290b884a7f171042dc1ca67c68af40ca2b7bbae5a4d47564fd9fe80c783f1
+      - ``` bruteforce.py -a 0123456789 md5-sha1 85d6066ab1d290b884a7f171042dc1ca67c68af40ca2b7bbae5a4d47564fd9fe80c783f1 ```
       
     - Avec un encoding particulier (crack d'un mot de passe windows) :
-      - bruteforce.py -e utf_16_le md4 554403f0a69c96f2e0f76196d475b447
+      - ``` bruteforce.py -e utf_16_le md4 554403f0a69c96f2e0f76196d475b447 ```
     
     - Avec un salt :
-      - bruteforce.py -s Secret sha512 5dd2e9c7435091e83e19a645954b4e361094067d73c23949d96ac46c991dd8dabac378e6ef82fd11af09c0674b5f80603c4ee351062afc799cbfb9973bd6e035
+      - ``` bruteforce.py -s Secret sha512 5dd2e9c7435091e83e19a645954b4e361094067d73c23949d96ac46c991dd8dabac378e6ef82fd11af09c0674b5f80603c4ee351062afc799cbfb9973bd6e035 ```
       
     - Avec des itérations :
-      - bruteforce.py -i 10000 whirlpool 124d398221ab0c468e6a6228063a1edbe5a19d3e2d934c4735b3331fb26a427a9e69ca0ba794af673e948032755b39ad911dc490d9540f8fa76f8d9976fc3132
+      - ``` bruteforce.py -i 10000 whirlpool 124d398221ab0c468e6a6228063a1edbe5a19d3e2d934c4735b3331fb26a427a9e69ca0ba794af673e948032755b39ad911dc490d9540f8fa76f8d9976fc3132 ```
 
     - En base64 :
-      - bruteforce.py -b64 sha512_224 M2Q1YTBiNzQyZjRjNjFkMzE1YzZjZTg2NDU3YTlmYTMwOTAzODgwZDMwNTU4YzY4Y2U0NzEzYjM=
+      - ``` bruteforce.py -b64 sha512_224 M2Q1YTBiNzQyZjRjNjFkMzE1YzZjZTg2NDU3YTlmYTMwOTAzODgwZDMwNTU4YzY4Y2U0NzEzYjM= ```
       
     - Avec une clés (blake2s et blake2b uniquement) :
-      - bruteforce.py -k Secret blake2b 788c180f73d12239896bf9e49ecd38f961e5100217bab232
+      - ``` bruteforce.py -k Secret blake2b 788c180f73d12239896bf9e49ecd38f961e5100217bab232 ```
       
     - Avec l'option person (blake2s et blake2b uniquement) :
-      - bruteforce.py -pe Secret blake2s b15fdeda739a91e23e68a604498c828e7c1c4895f5953d80
+      - ``` bruteforce.py -pe Secret blake2s b15fdeda739a91e23e68a604498c828e7c1c4895f5953d80 ```
       
   - Mot de passe Windows :
     - Lorsque vous récupérez les hashs de vos mots de passe Windows vous les trouverez sous cette forme :
-      - John Doe:1000:aad3b435b51404eeaad3b435b51404ee:b9f917853e3dbf6e6831ecce60725930:::
+      - ``` John Doe:1000:aad3b435b51404eeaad3b435b51404ee:b9f917853e3dbf6e6831ecce60725930::: ```
     - Enfaite de manière générale ils sont visible comme ça :
-      - NomUtilisateur:NombreCorrespondantAuTypeDeCompte:UnHash:MD4_duMotDePasse(encoding : UTF-16le):::
+      - ``` NomUtilisateur:NombreCorrespondantAuTypeDeCompte:UnHash:MD4_duMotDePasse(encoding : UTF-16le)::: ```
       
   - Mot de passe Linux :
     - Lorsque vous récupérez les hashs de vos mots de passe Linuw vous les trouverez sous cette forme :
-      - John:$6$ABCDEFGHIJKLMNOP$XICo1SGZRjxn3r2NvLTfwPU4dJmg7iH6BtkD9YyVcu0F2wJSIgnCUBW7iu065cvrlM/d3jZOby.mEoftNLVRHX:1832;0:9997:8:::
+      - ``` John:$6$ABCDEFGHIJKLMNOP$XICo1SGZRjxn3r2NvLTfwPU4dJmg7iH6BtkD9YyVcu0F2wJSIgnCUBW7iu065cvrlM/d3jZOby.mEoftNLVRHX:1832;0:9997:8::: ```
     - Voila comment il est décomposé :
-      - Nom:Hash:Nombre1:Nombre2:Nombre3:::
+      - ``` Nom:Hash:Nombre1:Nombre2:Nombre3::: ```
       - Le hash se décompose de la manière suivante :
-        - $typeDeHash$salt$hash
+        - ``` $typeDeHash$salt$hash ```
     - Ils ne sont décryptable qu'avec la version Linux :
-      - bruteforce.py crypt $6$WqWNz4bnyBa.ZqKQ$tdKA2jh5eAkzg4f2zjdxNg8wk3Oq6iTv/7jbygF8cRmyRLvblS/swx9nTKh3/KE1I6DG7oMr3bvBsnLTFITH91
+      - ``` bruteforce.py crypt $6$WqWNz4bnyBa.ZqKQ$tdKA2jh5eAkzg4f2zjdxNg8wk3Oq6iTv/7jbygF8cRmyRLvblS/swx9nTKh3/KE1I6DG7oMr3bvBsnLTFITH91 ```
     - Le mot de passe Linux prend 100 fois plus de temps (en moyenne) à être retrouvé que le mot de passe Windows (le même).
 
 Le second script que je propose permet d'extraire un fichier zip crypté et de récupérer le mot de passe :
   - Utilisations :
-    - Générale : bruteforceZip.py [options]
+    - Générale : ``` bruteforceZip.py [options] ```
     
-    - Verbose : bruteforceZip.py -v (non recommandée car elle prend plus de temps)
+    - Verbose : ``` bruteforceZip.py -v ``` (non recommandée car elle prend plus de temps)
     
-    - Dictionnaire uniquement : bruteforceZip.py -p
+    - Dictionnaire uniquement : ``` bruteforceZip.py -p ```
     
-    - Bruteforce uniquement : bruteforceZip.py -b
+    - Bruteforce uniquement : ``` bruteforceZip.py -b ```
     
-    - Avec un alphabet particulier : bruteforceZip.py -a
+    - Avec un alphabet particulier : ``` bruteforceZip.py -a ```
     
-    - Aide : bruteforceZip.py -h
-    
-A venir (probablement) : bruteforce ssh, bruteforce ftp, bruteforce HTTP basic auth.
+    - Aide : ``` bruteforceZip.py -h ```
     
     
